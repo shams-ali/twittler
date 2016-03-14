@@ -1,11 +1,13 @@
 $(document).ready(function(){
-
   var $timeline = $('#timeline');
+  var startIndex = 0;
 
   var showTweets = function(user) {
     var counter = 0;
     var args = Array.prototype.slice.call(arguments);
-    $(timeline).empty();
+    if(args.length){
+      $(timeline).empty();
+    }
     var endIndex = streams.home.length - 1;
       for (var i = 0; i <= endIndex; i++) {
         if(!args.length){
@@ -16,13 +18,13 @@ $(document).ready(function(){
           var tweet = streams.home[i];
           var $user = $('<div class="user-container"><a href="#" class="user" data-name="' + tweet.user + '">' + "@" + tweet.user + '</a></div>');
           var $tweet = $('<div class="tweet">' + tweet.message + '</div>');
-          if(counter % 2 === 0){
-            $tweet.addClass('every-Other-Tweet');
-          }
           var $today = $('<div class="today">' + tweet.created_at + '</div>');
           $user.prependTo($tweet);
           $tweet.prependTo($timeline);
           $today.appendTo($tweet);
+          if(counter % 2 === 0){
+            $tweet.addClass('every-Other-Tweet');
+          }
           counter++;
         }
       }
