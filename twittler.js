@@ -22,7 +22,7 @@ $(document).ready(function(){
           $tweet.prependTo($timeline);
           $today.appendTo($tweet);
           if(counter % 2 === 0){
-            $tweet.addClass('every-Other-Tweet');
+            $tweet.addClass('every-other-tweet');
           }
           counter++;
         }
@@ -32,16 +32,11 @@ $(document).ready(function(){
 
   showTweets();
 
-  $('button').on('click', function(){
+  $(document).on('click', 'button', function(){
     showTweets();
-    $('.user').on('click', function(){
-     var $user = $(this).data('name');
-     console.log($user);
-      showTweets($user);
-    });
   });
 
-  $('.user').on('click', function(){
+  $(document).on('click', '.user', function(){
      var $user = $(this).data('name');
      console.log($user);
      showTweets($user);
