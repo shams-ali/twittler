@@ -1,6 +1,5 @@
 $(document).ready(function(){
   var $timeline = $('#timeline');
-  var startIndex = 0;
 
   var showTweets = function(user) {
     var counter = 0;
@@ -32,6 +31,7 @@ $(document).ready(function(){
   //setTimeout(showTweets, 1000, endIndex + 1); (new tweets without button)
 
   showTweets();
+
   $('button').on('click', function(){
     showTweets();
     $('.user').on('click', function(){
