@@ -1,3 +1,36 @@
-.fresh {
-  background-color: yellow;
+body {
+  background-color: white;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #80bfff;
+    color: white;
+}
+
+.tweet {
+  font-size: 2em;
+}
+
+.user {
+  font-size: 0.7em;
+  font-weight: bold;
+  color: #3399ff;
+}
+
+.every-Other-Tweet {
+  background-color: #e6ffff;
+}
+
+.today {
+  font-style: italic;
+  font-size: 0.5em;
+}
+
+.test {
+  font-weight: bold;
+  color: red;
 }

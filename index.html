@@ -1,44 +1,19 @@
+
+
 <!DOCTYPE html>
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="twittler.css">
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
+    <script src="twittler.js"></script>
   </head>
   <body>
-  <button>Load New Tweets</button>
-  <div id="timeline"></div>
-    <script>
-
-$(document).ready(function(){
-  var $timeline = $('#timeline');
-
-  console.log(streams.home);
-
-  var startIndex = 0;
-
-  var showTweets = function() {
-    var endIndex = streams.home.length - 1;
-
-    $('.tweet').removeClass('fresh');
-
-    for (var i = startIndex; i <= endIndex; i++) {
-      var tweet = streams.home[i];
-      var $tweet = $('<div class="tweet"></div>');
-      $tweet.text('@' + tweet.user + ': ' + tweet.message);
-      $tweet.addClass('fresh');
-      $tweet.prependTo($timeline);
-    }
-    startIndex = endIndex + 1;
-  };
-  //setTimeout(showTweets, 1000, endIndex + 1); (new tweets without button)
-  showTweets();
-
-  $(document).on('click', 'button', function() {
-    showTweets();
-  });
-});
-
-    </script>
-      </body>
+    <header>
+      <h1>Twittler</h1>
+      <button id= btnNewTweet class='btn'>Load New Tweets!</button>
+    </header>
+    <section id="timeline">
+    </section>
+  </body>
 </html>
