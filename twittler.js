@@ -1,6 +1,8 @@
 $(document).ready(function(){
   var $timeline = $('#timeline');
 
+
+
 var elapsedTime = function(endTime, startTime){
   var elapsedDays = endTime.getDay() - startTime.getDay();
   var elapsedHours = endTime.getHours() - startTime.getHours();
@@ -46,7 +48,7 @@ var elapsedTime = function(endTime, startTime){
 
   showTweets();
 
-  $(document).on('click', 'button', function(){
+  $(document).on('click', '#btnLoadTweets', function(){
     showTweets();
   });
 
@@ -55,5 +57,25 @@ var elapsedTime = function(endTime, startTime){
      showTweets($user);
   });
 
+  $(document).on('click', '#btnPostTweet', function(){
+    postTweet();
+  });
+
+  var postTweet = function(){
+    $(timeline).empty();
+    var $createTweet = $('<div class="createTweet"><h1>Create Tweet</h1></div>');
+    var $labelUsername = $('<label for="inpVis">Username</label>');
+    var $inputUsername = $('<input type="text" id="inpVis" name="vis"></input>');
+    var $labelMessage = $('<label for="message">Message</label>');
+    var $textMessage = $('<textarea id="message" name="message"></textarea>');
+    var $btnSubmit = $('<button id= btnIDSubmit class="btn">Submit</button>');
+    $timeline.prepend($createTweet, $labelUsername, $inputUsername, $labelMessage, $textMessage, $btnSubmit);
+    $(document).on('click', '#btnIDSubmit', function(){
+      window.visitor = $inputUsername.val(); //input from uername
+      var message = $textMessage.val(); //input from message
+      writeTweet(message); //added date obj to function on  data_generator file???
+      showTweets();
+    });
+  };
 
 });
